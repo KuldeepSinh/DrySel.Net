@@ -6,8 +6,8 @@ namespace DrySelJSON.Reflection
 {
     public class Reflector<T> : IReflector<T> where T : class
     {
-        private Assembly assembly;
-        private string namesapce;
+        private readonly Assembly assembly;
+        private readonly string namesapce;
 
         public Reflector(string assemblyName, string namespaceName)
         {
