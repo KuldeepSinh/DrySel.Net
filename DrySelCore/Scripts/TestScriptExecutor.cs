@@ -1,5 +1,6 @@
 ﻿using DrySelCore.Model;
 using DrySelCore.Script.Abstractions;
+using DrySelCore.Scripts;
 using DrySelCore.Scripts.Abstractions;
 using OpenQA.Selenium;
 using System;
@@ -16,13 +17,8 @@ namespace DrySelCore.Script
         public TestScriptExecutor(IWebDriver webDriver)
         {
             WebDriver = webDriver;
-        }
-
-        public TestScriptExecutor(IWebDriver webDriver, IInputScript inputScript, IVerificationScript verificationScript)
-        {
-            WebDriver = webDriver;
-            InputScript = inputScript;
-            VerificationScript = verificationScript;
+            InputScript = new InputScript();
+            VerificationScript = new VerificationScript();
         }
 
         public void ExecuteInputScript(IEnumerable<UIElement> uiElementList, IEnumerable<TestData> testDataList)

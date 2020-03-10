@@ -1,18 +1,18 @@
 ﻿using DrySelJSON.Reflection.Abstractions;
 using System;
+using System.Reflection;
 
 namespace DrySelJSON.Reflection
 {
     public class Reflector<T> : IReflector<T> where T : class
     {
-        public string TypeNamePrefix { get; set; }
-        public Reflector()
-        {
-        }
+        private Assembly assembly;
+        private string namesapce;
 
-        public Reflector(string assemblyName)
+        public Reflector(string assemblyName, string namespaceName)
         {
-            TypeNamePrefix = assemblyName;
+            assembly = Assembly.Load(assemblyName);
+            namesapce = namespaceName;
         }
         public T GetInstance(string instanceOf)
         {
@@ -27,18 +27,18 @@ namespace DrySelJSON.Reflection
         private Type GetTypeFromName(string instanceOf)
         {
             string fullyQualifiedClassName = GetFullyQualifiedClassName(instanceOf);
-            return Type.GetType(fullyQualifiedClassName, true, true);
+            return assembly.GetType(fullyQualifiedClassName, true, true);
         }
 
         private string GetFullyQualifiedClassName(string instanceOf)
         {
-            if (string.IsNullOrEmpty(TypeNamePrefix))
+            if (string.IsNullOrEmpty(namesapce))
             {
                 return instanceOf;
             }
             else
             {
-                return $"{TypeNamePrefix}.{instanceOf}";
+                return $"{namesapce}.{instanceOf}";
             }
         }
     }

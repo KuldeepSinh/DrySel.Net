@@ -4,15 +4,11 @@ namespace DrySelJSON.Reflection
 {
     public class AssertionReflector : Reflector<IAssertion>
     {
-        public AssertionReflector()
-        {
-            TypeNamePrefix = "DrySelCore.Assertions";
-        }
-        public AssertionReflector(string typeNamePrefix) : base(typeNamePrefix)
+        public AssertionReflector() : this("DrySelCore", "DrySelCore.Assertions")
         {
         }
-
+        public AssertionReflector(string assemblyName, string namespaceName) : base(assemblyName, namespaceName)
+        {
+        }
     }
-
-
 }

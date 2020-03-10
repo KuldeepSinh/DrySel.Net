@@ -4,15 +4,11 @@ namespace DrySelJSON.Reflection
 {
     public class ActionReflector : Reflector<IAction>
     {
-        public ActionReflector()
-        {
-            TypeNamePrefix = "DrySelCore.Actions";
-        }
-        public ActionReflector(string typeNamePrefix) : base(typeNamePrefix)
+        public ActionReflector() : this("DrySelCore", "DrySelCore.Actions")
         {
         }
-
+        public ActionReflector(string assemblyName, string namespaceName) : base(assemblyName, namespaceName)
+        {
+        }
     }
-
-
 }
