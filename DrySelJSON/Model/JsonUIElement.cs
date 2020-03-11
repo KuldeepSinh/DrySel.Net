@@ -11,13 +11,20 @@ namespace DrySelJSON.Model
         public string Assertion { get; set; }
         public UIElement GetUIElement()
         {
-            return new UIElement()
+            UIElement uiElement =  new UIElement()
             {
                 Key = Key,
-                ElementID = ElementID,
-                InputAction = new ActionReflector().GetInstance(InputAction),
-                Assertion = new AssertionReflector().GetInstance(Assertion),
+                ElementID = ElementID
             };
+            if (InputAction != null)
+            {
+                uiElement.InputAction = new ActionReflector().GetInstance(InputAction);
+            }
+            if (Assertion != null)
+            {
+                uiElement.Assertion = new AssertionReflector().GetInstance(Assertion);
+            }
+            return uiElement;
         }
     }
 }

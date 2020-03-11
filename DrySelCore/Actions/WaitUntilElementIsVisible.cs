@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using SeleniumExtras.WaitHelpers;
+using System.Diagnostics;
 
 namespace DrySelCore.Actions
 {
@@ -14,11 +15,25 @@ namespace DrySelCore.Actions
             int i = 1;
             do
             {
-                wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(i));
-                var element = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(inputValue)));
-                if (element != null)
+                try
                 {
-                    break;
+                    wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(i));
+                    var element = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
+                    if (element != null)
+                    {
+                        break;
+                    }
+                }
+                catch(WebDriverTimeoutException timeOutException)
+                {
+                    if(i < 10)
+                    {
+                        Debug.WriteLine("Attempt number to find " + xPath + " = " + i + ".");
+                    }
+                    else
+                    {
+                        throw timeOutException;
+                    }
                 }
             } while (++i <= 10);
         }
