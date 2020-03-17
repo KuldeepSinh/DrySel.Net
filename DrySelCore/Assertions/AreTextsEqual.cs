@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace DrySelCore.Assertions
 {
-    public class CompareText : IAssertion
+    public class AreTextsEqual : IAssertion
     {
         public void Verify(IWebDriver webDriver, string xPath, string expectedValue)
         {
