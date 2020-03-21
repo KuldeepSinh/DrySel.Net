@@ -31,7 +31,14 @@ namespace DrySelCore.Scripts
 
         private void AddStepToScript(UIElement uiElement, TestData testData)
         {
-            Script.Add(testData.StepNumber, new VerificationStep { ElementId = uiElement.ElementID, Assertion = uiElement.Assertion, ExpectedData = testData.Value });
+            Script.Add(testData.StepNumber, 
+                new VerificationStep 
+                { 
+                    ElementId = uiElement.ElementID, 
+                    Assertion = uiElement.Assertion, 
+                    ExpectedData = testData.Value,
+                    ExpectedDataArray = testData.ValueArray
+                });
         }
     }
 }

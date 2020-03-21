@@ -7,5 +7,6 @@ namespace DrySelCore.Model
         public string ElementId { get; set; }
         public IAction Action { get; set; }
         public string InputData { get; set; }
+        public string[] InputDataArray { get; set; }
     }
 }

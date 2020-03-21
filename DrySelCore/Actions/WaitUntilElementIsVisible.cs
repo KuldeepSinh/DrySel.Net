@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using SeleniumExtras.WaitHelpers;
+using WaitHelper = SeleniumExtras.WaitHelpers;
 using System.Diagnostics;
 
 namespace DrySelCore.Actions
@@ -18,7 +18,7 @@ namespace DrySelCore.Actions
                 try
                 {
                     wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(i));
-                    var element = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
+                    var element = wait.Until(WaitHelper.ExpectedConditions.ElementIsVisible(By.XPath(xPath)));
                     if (element != null)
                     {
                         break;

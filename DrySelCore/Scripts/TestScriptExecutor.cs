@@ -53,7 +53,14 @@ namespace DrySelCore.Script
             if (step.Assertion != null)
             {
                 Console.WriteLine($"UI Element = {step.ElementId}, Expected Data = {step.ExpectedData}, Assertion = { step.Assertion.ToString()}.");
-                step.Assertion.Verify(WebDriver, step.ElementId, step.ExpectedData);
+                if (step.ExpectedDataArray == null)
+                {
+                    step.Assertion.Verify(WebDriver, step.ElementId, step.ExpectedData);
+                }
+                else
+                {
+                    step.Assertion.Verify(WebDriver, step.ElementId, step.ExpectedDataArray);
+                }
             }
         }
 
@@ -62,7 +69,14 @@ namespace DrySelCore.Script
             if (step.Action != null)
             {
                 Console.WriteLine($"UI Element = {step.ElementId}, Input Data = {step.InputData}, Input Action = { step.Action.ToString()}.");
-                step.Action.Fire(WebDriver, step.ElementId, step.InputData);
+                if (step.InputDataArray == null)
+                {
+                    step.Action.Fire(WebDriver, step.ElementId, step.InputData);
+                }
+                else
+                {
+                    step.Action.Fire(WebDriver, step.ElementId, step.InputDataArray);
+                }
             }
         }
     }

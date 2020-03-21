@@ -30,7 +30,14 @@ namespace DrySelCore.Scripts
 
         private void AddStepToScript(UIElement uiElement, TestData testData)
         {
-            Script.Add(testData.StepNumber, new InputStep { ElementId = uiElement.ElementID, Action = uiElement.InputAction, InputData = testData.Value });
+            Script.Add(testData.StepNumber,
+                new InputStep
+                {
+                    ElementId = uiElement.ElementID,
+                    Action = uiElement.InputAction,
+                    InputData = testData.Value,
+                    InputDataArray = testData.ValueArray
+                });
         }
     }
 }
