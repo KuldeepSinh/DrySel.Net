@@ -52,7 +52,7 @@ namespace DrySelCore.Script
         {
             if (step.Assertion != null)
             {
-                Console.WriteLine($"UI Element = {step.ElementId}, Expected Data = {step.ExpectedData}, Assertion = { step.Assertion.ToString()}.");
+                Console.WriteLine($"UI Element = {step.ElementId}, Expected Data = {step.ExpectedData}, Assertion = { step.Assertion}.");
                 if (step.ExpectedDataArray == null)
                 {
                     step.Assertion.Verify(WebDriver, step.ElementId, step.ExpectedData);
@@ -68,7 +68,7 @@ namespace DrySelCore.Script
         {
             if (step.Action != null)
             {
-                Console.WriteLine($"UI Element = {step.ElementId}, Input Data = {step.InputData}, Input Action = { step.Action.ToString()}.");
+                Console.WriteLine($"UI Element = {step.ElementId}, Input Data = {step.InputData}, Input Action = { step.Action}.");
                 if (step.InputDataArray == null)
                 {
                     step.Action.Fire(WebDriver, step.ElementId, step.InputData);

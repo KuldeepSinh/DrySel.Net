@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace DrySelCore.Actions
 {
-    public class MarkAsUnhecked : IAction
+    public class MarkAsUnchecked : IAction
     {
         public void Fire(IWebDriver webDriver, string xPath, string inputValue)
         {
@@ -19,7 +19,7 @@ namespace DrySelCore.Actions
             }
             else
             {
-                throw new ElementNotInteractableException($"Not able to click {webElement.ToString()}");
+                throw new ElementNotInteractableException($"Not able to click {webElement}");
             }
         }
 

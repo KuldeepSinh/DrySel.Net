@@ -19,7 +19,7 @@ namespace DrySelCore.Actions
             }
             else
             {
-                throw new ElementNotInteractableException($"Not able to click {webElement.ToString()}");
+                throw new ElementNotInteractableException($"Not able to click {webElement}");
             }
         }
 
