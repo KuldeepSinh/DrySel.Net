@@ -7,10 +7,10 @@
     <Authors>KuldeepSinh</Authors>
     <Description>A simple warpper around Selenium/WebDeriver. It promotes DRY - Don't Repeat Yourself and streamlines test automation development.</Description>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>1.0.0.2</FileVersion>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

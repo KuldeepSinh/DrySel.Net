@@ -17,10 +17,6 @@ namespace DrySelCore.Actions
             {
                 webElement.Click();
             }
-            else
-            {
-                throw new ElementNotInteractableException($"Not able to click {webElement}");
-            }
         }
 
     }
