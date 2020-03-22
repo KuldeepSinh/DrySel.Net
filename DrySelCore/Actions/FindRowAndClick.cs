@@ -1,5 +1,5 @@
 ﻿using DrySelCore.Actions.Abstractions;
-using DrySelCore.Actions.Shared;
+using DrySelCore.Shared;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System.Linq;

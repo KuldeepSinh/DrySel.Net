@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace DrySelCore.Actions.Shared
+namespace DrySelCore.Shared
 {
     public static class TableOperations
     {
@@ -27,21 +27,8 @@ namespace DrySelCore.Actions.Shared
 
         private static bool CheckIfCellsAreMatching(ReadOnlyCollection<IWebElement> columns, string[] values)
         {
-            bool matchFound = false;
-            for(int i = 0; i < columns.Count(); i++)
-            {
-                if (columns[i].Text.Equals(values[i]))
-                {
-                    matchFound = true;
-                    continue;
-                }
-                else
-                {
-                    matchFound = false;
-                    break;
-                }
-            }
-            return matchFound;
+            string[] textsInColumns = columns.Select(column => column.Text).ToArray();
+            return !values.Except(textsInColumns).Any();
         }
     }
 }

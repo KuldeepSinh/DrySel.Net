@@ -1,4 +1,4 @@
-﻿using DrySelCore.Actions.Shared;
+﻿using DrySelCore.Shared;
 using DrySelCore.Assertions.Abstractions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
